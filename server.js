@@ -9,6 +9,10 @@ const port = process.env.PORT
 const url = process.env.URL 
 import path from "path"; 
 
+// Ruta de Health Check
+app.use("/health", (req, res) => res.sendStatus(200));
+app.use('/', routes);
+
 app.use(json())
 app.use(express.static(path.join("public"))); 
 app.use("/user", userRouter);
